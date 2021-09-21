@@ -8,9 +8,13 @@ public class Boss : MonoBehaviour
     [SerializeField] float m_time = 0;
     [SerializeField] GameObject m_muzzle = null;
     [SerializeField] GameObject m_beam = null;
+    [SerializeField] GameObject m_beamEffect = null;
+    bool m_lvl1 = false;
+    bool m_lvl2 = false;
+    bool m_normalAttack = false;
+    bool m_normalAttack2 = true;
     Rigidbody2D m_rb;
     Animator m_ani;
-    // Start is called before the first frame update
     void Start()
     {
         m_rb = GetComponent<Rigidbody2D>();
@@ -21,19 +25,40 @@ public class Boss : MonoBehaviour
     void Update()
     {
         m_time += Time.deltaTime;
-        Debug.Log(m_time);
+        //Debug.Log(m_time);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(m_hp <= 40)
+        BossAttck();
+    }
+
+    void BossAttck()
+    {
+        if (m_hp <= 40 && m_lvl1 == false)
         {
             m_ani.Play("BossJump");
+            m_lvl1 = true;
+            //stantiate();
         }
-        if(m_hp <= 20)
+        else if (m_hp <= 20 && m_lvl2 == false)
         {
-            //Instantiate()
+            m_ani.Play("BossBeamchrage");
+            GameObject go = Instantiate(m_beam, m_muzzle.transform.position, m_beam.transform.rotation);
+            m_lvl2 = true;
+            Debug.Log("s");
         }
-
+        else if (m_normalAttack == false)
+        {
+            m_ani.Play("BossNormal");
+            m_normalAttack = true;
+            m_normalAttack2 = false;
+        }
+        else if(m_normalAttack2 == false)
+        {
+            m_ani.Play("BossNormal2");
+            m_normalAttack2 = true;
+            m_normalAttack = false;
+        }
     }
 }
