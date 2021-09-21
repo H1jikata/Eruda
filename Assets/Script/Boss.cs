@@ -31,6 +31,13 @@ public class Boss : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.gameObject.tag == "Player")
+        BossAttck();
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag =="Player")
         BossAttck();
     }
 
@@ -50,7 +57,7 @@ public class Boss : MonoBehaviour
             m_ani.Play("BossBeamchrage");
             GameObject go = Instantiate(m_beam, m_muzzle.transform.position, m_beam.transform.rotation);
             m_lvl2 = true;
-            Debug.Log("s");
+            Reset();
         }
         else if (m_normalAttack == false)
         {
