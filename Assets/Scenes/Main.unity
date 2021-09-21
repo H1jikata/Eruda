@@ -229,6 +229,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 523022931660310449, guid: 78361147a1f1ae547a4d87237c0c2bab,
         type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.033472046
+      objectReference: {fileID: 0}
+    - target: {fileID: 523022931660310449, guid: 78361147a1f1ae547a4d87237c0c2bab,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.61383355
+      objectReference: {fileID: 0}
+    - target: {fileID: 523022931660310449, guid: 78361147a1f1ae547a4d87237c0c2bab,
+        type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.23252934
       objectReference: {fileID: 0}
@@ -370,12 +380,12 @@ PrefabInstance:
     - target: {fileID: 6124374802940794186, guid: 78361147a1f1ae547a4d87237c0c2bab,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.79
       objectReference: {fileID: 0}
     - target: {fileID: 6124374802940794186, guid: 78361147a1f1ae547a4d87237c0c2bab,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.45
       objectReference: {fileID: 0}
     - target: {fileID: 6124374802940794186, guid: 78361147a1f1ae547a4d87237c0c2bab,
         type: 3}
@@ -490,7 +500,7 @@ PrefabInstance:
     - target: {fileID: 8994433465794101890, guid: 78361147a1f1ae547a4d87237c0c2bab,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 4.195796
       objectReference: {fileID: 0}
     - target: {fileID: 8994433465794101890, guid: 78361147a1f1ae547a4d87237c0c2bab,
         type: 3}
@@ -621,12 +631,12 @@ PrefabInstance:
     - target: {fileID: 8994433465794101890, guid: 78361147a1f1ae547a4d87237c0c2bab,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.035089016
+      value: 1.7049189
       objectReference: {fileID: 0}
     - target: {fileID: 8994433465794101890, guid: 78361147a1f1ae547a4d87237c0c2bab,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.7666242
+      value: 3.8515615
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 4636959445331907277, guid: 78361147a1f1ae547a4d87237c0c2bab,
@@ -652,7 +662,7 @@ SpringJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -1.2311798, y: -0.23068744}
+  m_ConnectedAnchor: {x: -1.2311801, y: -0.23068741}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0
@@ -715,7 +725,7 @@ SpringJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -1.829689, y: 0.5040466}
+  m_ConnectedAnchor: {x: -1.8296895, y: 0.50404674}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0
@@ -856,12 +866,12 @@ SpringJoint2D:
   m_Enabled: 1
   serializedVersion: 4
   m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 566973007}
+  m_ConnectedRigidBody: {fileID: 0}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0, y: 0}
+  m_ConnectedAnchor: {x: -6.7809677, y: -0.49079037}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0
@@ -958,7 +968,7 @@ SpringJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.7439306, y: -0.03477388}
+  m_ConnectedAnchor: {x: -0.7439299, y: -0.034774177}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0
@@ -1211,12 +1221,34 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 5962ea47a1e116a43affef28268616d8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!4 &883824546 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6124374802940794186, guid: 78361147a1f1ae547a4d87237c0c2bab,
+    type: 3}
+  m_PrefabInstance: {fileID: 36215670}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &883824547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883824544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c185b9dcb7c3e844a229d541899b558, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_hp: 50
+  m_time: 0
+  m_muzzle: {fileID: 0}
+  m_beam: {fileID: 0}
 --- !u!1 &1019638561 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2183801283028719507, guid: 78361147a1f1ae547a4d87237c0c2bab,
@@ -1238,7 +1270,7 @@ SpringJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.31506228, y: -0.9694269}
+  m_ConnectedAnchor: {x: -0.31506193, y: -0.9694277}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0
@@ -1296,12 +1328,12 @@ SpringJoint2D:
   m_Enabled: 1
   serializedVersion: 4
   m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 1295535276}
+  m_ConnectedRigidBody: {fileID: 0}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: -5.6880317, y: -0.45272446}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0
@@ -1617,7 +1649,7 @@ SpringJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -1.9671617, y: -0.08738092}
+  m_ConnectedAnchor: {x: -1.9671621, y: -0.087380804}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0
@@ -1659,6 +1691,138 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!1 &1569289195
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1569289196}
+  m_Layer: 0
+  m_Name: Muzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1569289196
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569289195}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.04, y: 0.53, z: -0.9475973}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 883824546}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1586591664
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1586591667}
+  - component: {fileID: 1586591666}
+  - component: {fileID: 1586591665}
+  m_Layer: 0
+  m_Name: pipo-btleffect167_1280_0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!95 &1586591665
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586591664}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e46101021cf47c04ba2cf3d4847d7633, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!212 &1586591666
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586591664}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 100
+  m_Sprite: {fileID: 7036410522357245063, guid: f4bd634fee7dd80469c07851895092fb,
+    type: 3}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 12.799999, y: 9.599999}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &1586591667
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586591664}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.84, y: -0.57, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1589617448 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7134080491278627020, guid: 78361147a1f1ae547a4d87237c0c2bab,
@@ -1680,7 +1844,7 @@ SpringJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.7340318, y: -0.082568236}
+  m_ConnectedAnchor: {x: -0.73403186, y: -0.08256773}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0
@@ -1825,7 +1989,7 @@ SpringJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.44653168, y: 0.8870497}
+  m_ConnectedAnchor: {x: -0.44653192, y: 0.88704973}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0
