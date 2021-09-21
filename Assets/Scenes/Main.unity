@@ -1236,7 +1236,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 5962ea47a1e116a43affef28268616d8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -1260,7 +1260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c185b9dcb7c3e844a229d541899b558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_hp: 20
+  m_hp: 60
   m_time: 0
   m_muzzle: {fileID: 1569289195}
   m_beam: {fileID: 1586591664}
@@ -1342,7 +1342,7 @@ Animator:
   m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1

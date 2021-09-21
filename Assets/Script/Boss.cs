@@ -6,6 +6,7 @@ public class Boss : MonoBehaviour
 {
     [SerializeField] int m_hp = 50;
     [SerializeField] float m_time = 0;
+    [SerializeField] float m_reset= 0;
     [SerializeField] GameObject m_muzzle = null;
     [SerializeField] GameObject m_beam = null;
     [SerializeField] GameObject m_beamEffect = null;
@@ -37,8 +38,11 @@ public class Boss : MonoBehaviour
     {
         if (m_hp <= 40 && m_lvl1 == false)
         {
+            m_normalAttack = true;
+            m_normalAttack2 = true;
             m_ani.Play("BossJump");
             m_lvl1 = true;
+            Reset();
             //stantiate();
         }
         else if (m_hp <= 20 && m_lvl2 == false)
@@ -61,4 +65,12 @@ public class Boss : MonoBehaviour
             m_normalAttack = false;
         }
     }
+
+    IEnumerator Reset()
+    {
+        yield return new WaitForSeconds(m_reset);
+        m_normalAttack = false;
+        m_normalAttack2 = true;
+    }
 }
+     
