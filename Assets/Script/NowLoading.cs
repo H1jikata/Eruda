@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;      // UI を操作するために追加している
 using UnityEngine.SceneManagement;  // シーン遷移を行うために追加している
 
-public class SceneLoader : MonoBehaviour
+public class NowLoading : MonoBehaviour
 {
     /// <summary>ロードするシーン名</summary>
     [SerializeField] string m_sceneNameToBeLoaded = "NowLoading";
