@@ -11,6 +11,9 @@ public class PlayerCon : MonoBehaviour
     [SerializeField] float m_arrowSpeed = 5f;
     [SerializeField] GameObject m_sword = null;
     [SerializeField] GameObject m_effect = null;
+    [SerializeField] float m_timer = 0;
+    private bool m_swordTrigger = false;
+    private float m_time = 0;
     //最後に向いてる方向
     Vector2 m_lastPosition;
     Rigidbody2D m_rb;
@@ -26,6 +29,7 @@ public class PlayerCon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        m_time += Time.deltaTime;
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
@@ -41,6 +45,12 @@ public class PlayerCon : MonoBehaviour
 
         m_lastPosition = ver;
 
+        if (m_time > m_timer)
+        {
+            m_swordTrigger = false;
+            m_time = 0;
+        }
+
         //攻撃モーション
         if (Input.GetButtonDown("Fire1"))
         {
@@ -49,8 +59,7 @@ public class PlayerCon : MonoBehaviour
 
         if(Input.GetButtonDown("Fire2"))
         {
-            Instantiate(m_sword, m_muzzle.transform.position, m_sword.transform.rotation);
-            Instantiate(m_effect, m_muzzle.transform.position, m_effect.transform.rotation);
+            Atack();
         }
     }
 
@@ -116,6 +125,29 @@ public class PlayerCon : MonoBehaviour
         {
             GameObject go = Instantiate(m_arrowPrefab, m_muzzle.transform.position, m_arrowPrefab.transform.rotation);
             go.transform.SetParent(this.transform);
+        }
+    }
+
+    //剣を振る
+    void Atack()
+    {
+        if (m_swordTrigger == false)
+        {
+            Instantiate(m_sword, m_muzzle.transform.position, m_sword.transform.rotation);
+            Instantiate(m_effect, m_muzzle.transform.position, m_effect.transform.rotation);
+            m_swordTrigger = true;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag =="bullet")
+        {
+            m_hp--;
+            if(m_hp < 0)
+            {
+
+            }
         }
     }
 }
