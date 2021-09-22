@@ -51,7 +51,7 @@ public class Boss : MonoBehaviour
             Vector2 vec = Player.transform.position - pos;
             //弾のRigidBody2Dコンポネントのvelocityに先程求めたベクトルを入れて力を加える
             t.GetComponent<Rigidbody2D>().velocity = vec * m_bulletSpeed;
-            tt.GetComponent<Rigidbody2D>().velocity = -vec * m_bulletSpeed;
+            //tt.GetComponent<Rigidbody2D>().velocity = -vec * m_bulletSpeed;
             count++;
             if (count == 1000)
             {

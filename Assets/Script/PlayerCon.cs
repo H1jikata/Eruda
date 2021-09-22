@@ -11,6 +11,7 @@ public class PlayerCon : MonoBehaviour
     [SerializeField] float m_arrowSpeed = 5f;
     [SerializeField] GameObject m_sword = null;
     [SerializeField] GameObject m_effect = null;
+    [SerializeField] GameObject m_deadEffect = null;
     [SerializeField] float m_timer = 0;
     private bool m_swordTrigger = false;
     private float m_time = 0;
@@ -146,7 +147,9 @@ public class PlayerCon : MonoBehaviour
             m_hp--;
             if(m_hp < 0)
             {
-
+                GameObject go = Instantiate(m_deadEffect);
+                go.transform.position = this.transform.position;
+                Destroy(this.gameObject);
             }
         }
     }
