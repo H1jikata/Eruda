@@ -9,6 +9,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] Transform target1;
     [SerializeField] int m_hp = 10;
     [SerializeField] GameObject m_effct = null;
+    [SerializeField] Transform[] m_muzzles = null;
+    [SerializeField] GameObject m_enemyBulletPrefab = null;
+    [SerializeField] float m_fireInterval = 1f;
+    [SerializeField] float m_bulletSpeed = 1f;
     GameObject PlayerObject;
     Animator m_ani;
     Rigidbody2D m_rb;
@@ -17,6 +21,8 @@ public class Enemy : MonoBehaviour
     private Vector2 force;
     private float h_move;
     private float v_move;
+    private float m_timer;
+    private float m_time = 1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,12 +31,31 @@ public class Enemy : MonoBehaviour
 
         PlayerObject = GameObject.Find("Player");
         target1 = PlayerObject.transform;
+
+        if (m_muzzles == null || m_muzzles.Length == 0)
+        {
+            m_muzzles = new Transform[1] { this.transform };
+        }
     }
     void Update()
     {
-
+        m_timer += Time.deltaTime;
+        if ( m_time< m_timer)
+        {
+            m_timer = 0;
+            //敵の座標を変数posに保存
+            var pos = this.gameObject.transform.position;
+            //弾のプレハブを作成
+            var t = Instantiate(m_enemyBulletPrefab);
+            //弾のプレハブの位置を敵の位置にする
+            t.transform.position = pos;
+            //敵からプレイヤーに向かうベクトルをつくる
+            //プレイヤーの位置から敵の位置（弾の位置）を引く
+            Vector2 vec = PlayerObject.transform.position - pos;
+            //弾のRigidBody2Dコンポネントのvelocityに先程求めたベクトルを入れて力を加える
+            t.GetComponent<Rigidbody2D>().velocity = vec * m_bulletSpeed;
+        }
     }
-
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
