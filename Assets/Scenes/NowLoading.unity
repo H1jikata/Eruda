@@ -292,7 +292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_slider: {fileID: 1623266101}
-  m_reset: 3
+  m_reset: 2
 --- !u!1 &240255822
 GameObject:
   m_ObjectHideFlags: 0
