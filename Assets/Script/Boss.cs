@@ -10,6 +10,7 @@ public class Boss : MonoBehaviour
     [SerializeField] GameObject m_muzzle = null;
     [SerializeField] GameObject m_beam = null;
     [SerializeField] GameObject m_beamEffect = null;
+    [SerializeField] GameObject m_effct = null;
     bool m_lvl1 = false;
     bool m_lvl2 = false;
     bool m_normalAttack = false;
@@ -31,8 +32,20 @@ public class Boss : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player")
-        BossAttck();
+        if (collision.gameObject.tag == "Player")
+        {
+            BossAttck();
+        }
+        if (collision.gameObject.tag == "Sword")
+        {
+            m_hp -= 2;
+            if(m_hp <= 0)
+            {
+                GameObject go = Instantiate(m_effct);
+                go.transform.position = this.transform.position;
+                Destroy(this.gameObject);
+            }
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
