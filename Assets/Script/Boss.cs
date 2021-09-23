@@ -99,10 +99,6 @@ public class Boss : MonoBehaviour
         else if (m_hp <= 20 && m_lvl2 == false)
         {
             m_ani.Play("BossBeamchrage");
-            for(int i = 0; i < 100; i++)
-            {
-
-            }
             m_lvl2 = true;
             m_lvl3 = false;
             Reset();

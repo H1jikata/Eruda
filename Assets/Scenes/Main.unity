@@ -9792,7 +9792,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33283e7ce8a8d114f9a189b28479dcf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_hp: 5
+  m_hp: 1
   m_speed: 5
   m_muzzle: {fileID: 781945118}
   m_arrowPrefab: {fileID: 1615375675}
@@ -9803,6 +9803,7 @@ MonoBehaviour:
   m_deadEffect: {fileID: 6028808643178590243, guid: c05298b6a8c9cc04da959ff3bc78652e,
     type: 3}
   m_timer: 3
+  m_reset: 1
 --- !u!1 &848971855
 GameObject:
   m_ObjectHideFlags: 0

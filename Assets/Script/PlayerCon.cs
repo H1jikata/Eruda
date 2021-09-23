@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerCon : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class PlayerCon : MonoBehaviour
     [SerializeField] GameObject m_effect = null;
     [SerializeField] GameObject m_deadEffect = null;
     [SerializeField] float m_timer = 0;
+    [SerializeField] float m_reset = 1;
     private bool m_swordTrigger = false;
     private float m_time = 0;
     //最後に向いてる方向
@@ -145,12 +147,20 @@ public class PlayerCon : MonoBehaviour
         if(collision.gameObject.tag =="bullet")
         {
             m_hp--;
-            if(m_hp < 0)
+            if(m_hp <= 0)
             {
+                //Reset();
                 GameObject go = Instantiate(m_deadEffect);
                 go.transform.position = this.transform.position;
+                SceneManager.LoadScene("GameOver");
                 Destroy(this.gameObject);
             }
         }
+    }
+    IEnumerator Reset()
+    {
+        yield return new WaitForSeconds(m_reset);
+        SceneManager.LoadScene("GameOver");
+        Debug.Log("a");
     }
 }

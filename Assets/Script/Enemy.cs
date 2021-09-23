@@ -40,20 +40,23 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         m_timer += Time.deltaTime;
-        if ( m_time< m_timer)
+        if (PlayerObject)
         {
-            m_timer = 0;
-            //敵の座標を変数posに保存
-            var pos = this.gameObject.transform.position;
-            //弾のプレハブを作成
-            var t = Instantiate(m_enemyBulletPrefab);
-            //弾のプレハブの位置を敵の位置にする
-            t.transform.position = pos;
-            //敵からプレイヤーに向かうベクトルをつくる
-            //プレイヤーの位置から敵の位置（弾の位置）を引く
-            Vector2 vec = PlayerObject.transform.position - pos;
-            //弾のRigidBody2Dコンポネントのvelocityに先程求めたベクトルを入れて力を加える
-            t.GetComponent<Rigidbody2D>().velocity = vec * m_bulletSpeed;
+            if (m_time < m_timer)
+            {
+                m_timer = 0;
+                //敵の座標を変数posに保存
+                var pos = this.gameObject.transform.position;
+                //弾のプレハブを作成
+                var t = Instantiate(m_enemyBulletPrefab);
+                //弾のプレハブの位置を敵の位置にする
+                t.transform.position = pos;
+                //敵からプレイヤーに向かうベクトルをつくる
+                //プレイヤーの位置から敵の位置（弾の位置）を引く
+                Vector2 vec = PlayerObject.transform.position - pos;
+                //弾のRigidBody2Dコンポネントのvelocityに先程求めたベクトルを入れて力を加える
+                t.GetComponent<Rigidbody2D>().velocity = vec * m_bulletSpeed;
+            }
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
