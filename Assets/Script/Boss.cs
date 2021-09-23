@@ -40,26 +40,28 @@ public class Boss : MonoBehaviour
             BossAttck();
             m_time = 0;
         }
-
-        if(m_lvl3 == false)
+        if(Player)
         {
-            var pos = this.gameObject.transform.position;
-            //弾のプレハブを作成
-            var t = Instantiate(m_beam);
-            var tt = Instantiate(m_beam);
-            //弾のプレハブの位置を敵の位置にする
-            t.transform.position = pos;
-            //敵からプレイヤーに向かうベクトルをつくる
-            //プレイヤーの位置から敵の位置（弾の位置）を引く
-            Vector2 vec = Player.transform.position - pos;
-            //弾のRigidBody2Dコンポネントのvelocityに先程求めたベクトルを入れて力を加える
-            t.GetComponent<Rigidbody2D>().velocity = vec * m_bulletSpeed;
-            //tt.GetComponent<Rigidbody2D>().velocity = -vec * m_bulletSpeed;
-            count++;
-            if (count == 1000)
+            if (m_lvl3 == false)
             {
-                m_lvl3 = true;
-                m_se.Stop();
+                var pos = this.gameObject.transform.position;
+                //弾のプレハブを作成
+                var t = Instantiate(m_beam);
+                var tt = Instantiate(m_beam);
+                //弾のプレハブの位置を敵の位置にする
+                t.transform.position = pos;
+                //敵からプレイヤーに向かうベクトルをつくる
+                //プレイヤーの位置から敵の位置（弾の位置）を引く
+                Vector2 vec = Player.transform.position - pos;
+                //弾のRigidBody2Dコンポネントのvelocityに先程求めたベクトルを入れて力を加える
+                t.GetComponent<Rigidbody2D>().velocity = vec * m_bulletSpeed;
+                //tt.GetComponent<Rigidbody2D>().velocity = -vec * m_bulletSpeed;
+                count++;
+                if (count == 1000)
+                {
+                    m_lvl3 = true;
+                    m_se.Stop();
+                }
             }
         }
         //Debug.Log(m_time);
