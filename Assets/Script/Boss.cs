@@ -11,6 +11,7 @@ public class Boss : MonoBehaviour
     [SerializeField] GameObject m_muzzle = null;
     [SerializeField] GameObject m_beam = null;
     [SerializeField] GameObject m_beamEffect = null;
+    [SerializeField] GameObject m_jumpEffect = null;
     [SerializeField] GameObject m_effct = null;
     [SerializeField] GameObject Player;
     [SerializeField] float m_bulletSpeed = 0;
@@ -22,10 +23,12 @@ public class Boss : MonoBehaviour
     int count = 0;
     Rigidbody2D m_rb;
     Animator m_ani;
+    AudioSource m_se;
     void Start()
     {
         m_rb = GetComponent<Rigidbody2D>();
         m_ani = GetComponent<Animator>();
+        m_se = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -56,6 +59,7 @@ public class Boss : MonoBehaviour
             if (count == 1000)
             {
                 m_lvl3 = true;
+                m_se.Stop();
             }
         }
         //Debug.Log(m_time);
@@ -87,20 +91,22 @@ public class Boss : MonoBehaviour
 
     void BossAttck()
     {
-        if (m_hp <= 40 && m_lvl1 == false)
-        {
-            m_normalAttack = true;
-            m_normalAttack2 = true;
-            m_ani.Play("BossJump");
-            m_lvl1 = true;
-            Reset();
-            //stantiate();
-        }
-        else if (m_hp <= 20 && m_lvl2 == false)
+        //if (m_hp <= 60 && m_lvl1 == false)
+        //{
+        //    m_normalAttack = true;
+        //    m_normalAttack2 = true;
+        //    m_ani.Play("BossJump");
+        //    GameObject go = Instantiate(m_jumpEffect);
+        //    go.transform.position = this.transform.position;
+        //    m_lvl1 = true;
+        //    Reset();
+        //}
+        if (m_hp <= 30 && m_lvl2 == false)
         {
             m_ani.Play("BossBeamchrage");
             m_lvl2 = true;
             m_lvl3 = false;
+            m_se.Play();
             Reset();
         }
         else if (m_normalAttack == false)

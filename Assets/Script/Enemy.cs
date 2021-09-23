@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     GameObject PlayerObject;
     Animator m_ani;
     Rigidbody2D m_rb;
+    AudioSource m_se;
     private bool x;
     private bool y;
     private Vector2 force;
@@ -23,11 +24,13 @@ public class Enemy : MonoBehaviour
     private float v_move;
     private float m_timer;
     private float m_time = 1f;
+    private bool m_trigger = true;
     // Start is called before the first frame update
     void Start()
     {
         m_rb = GetComponent<Rigidbody2D>();
         m_ani = GetComponent<Animator>();
+        m_se = GetComponent<AudioSource>();
 
         PlayerObject = GameObject.Find("Player");
         target1 = PlayerObject.transform;
@@ -44,18 +47,22 @@ public class Enemy : MonoBehaviour
         {
             if (m_time < m_timer)
             {
-                m_timer = 0;
-                //敵の座標を変数posに保存
-                var pos = this.gameObject.transform.position;
-                //弾のプレハブを作成
-                var t = Instantiate(m_enemyBulletPrefab);
-                //弾のプレハブの位置を敵の位置にする
-                t.transform.position = pos;
-                //敵からプレイヤーに向かうベクトルをつくる
-                //プレイヤーの位置から敵の位置（弾の位置）を引く
-                Vector2 vec = PlayerObject.transform.position - pos;
-                //弾のRigidBody2Dコンポネントのvelocityに先程求めたベクトルを入れて力を加える
-                t.GetComponent<Rigidbody2D>().velocity = vec * m_bulletSpeed;
+                if (m_trigger == false)
+                {
+                    m_timer = 0;
+                    //敵の座標を変数posに保存
+                    var pos = this.gameObject.transform.position;
+                    //弾のプレハブを作成
+                    var t = Instantiate(m_enemyBulletPrefab);
+                    //弾のプレハブの位置を敵の位置にする
+                    t.transform.position = pos;
+                    //敵からプレイヤーに向かうベクトルをつくる
+                    //プレイヤーの位置から敵の位置（弾の位置）を引く
+                    Vector2 vec = PlayerObject.transform.position - pos;
+                    //弾のRigidBody2Dコンポネントのvelocityに先程求めたベクトルを入れて力を加える
+                    t.GetComponent<Rigidbody2D>().velocity = vec * m_bulletSpeed;
+                    m_se.Play();
+                }
             }
         }
     }
@@ -64,6 +71,7 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             attak();
+            m_trigger = false;
         }
     }
 
@@ -72,6 +80,7 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             m_rb.velocity = Vector2.zero;
+            m_trigger = true;
         }
     }
     void attak()
@@ -119,6 +128,5 @@ public class Enemy : MonoBehaviour
         {
             m_hp--;
         }
-
     }
 }
