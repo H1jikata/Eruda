@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerCon : MonoBehaviour
 {
     [SerializeField] int m_hp = 5;
+    [SerializeField] float m_hp1 = 1;
     [SerializeField] float m_speed = 5;
     [SerializeField] GameObject m_muzzle;
     [SerializeField] GameObject m_arrowPrefab;
@@ -15,6 +17,7 @@ public class PlayerCon : MonoBehaviour
     [SerializeField] GameObject m_deadEffect = null;
     [SerializeField] float m_timer = 0;
     [SerializeField] float m_reset = 1;
+    [SerializeField] Slider m_slider;
     private bool m_swordTrigger = false;
     private float m_time = 0;
     //最後に向いてる方向
@@ -27,12 +30,14 @@ public class PlayerCon : MonoBehaviour
         m_rb = GetComponent<Rigidbody2D>();
         m_ani = GetComponent<Animator>();
         m_sp = GetComponent<SpriteRenderer>();
+        m_slider = GameObject.Find("Slider").GetComponent<Slider>();
     }
 
     // Update is called once per frame
     void Update()
     {
         m_time += Time.deltaTime;
+        m_slider.value = m_hp1;
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
@@ -147,7 +152,8 @@ public class PlayerCon : MonoBehaviour
         if(collision.gameObject.tag =="bullet")
         {
             m_hp--;
-            if(m_hp <= 0)
+            m_hp1-=0.2f;
+            if (m_hp <= 0)
             {
                 //Reset();
                 GameObject go = Instantiate(m_deadEffect);
