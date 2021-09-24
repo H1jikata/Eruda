@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Boss : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class Boss : MonoBehaviour
     [SerializeField] GameObject m_jumpEffect = null;
     [SerializeField] GameObject m_effct = null;
     [SerializeField] GameObject Player;
+    [SerializeField] float m_waitTime = 1;
     [SerializeField] float m_bulletSpeed = 0;
     bool m_lvl1 = false;
     bool m_lvl2 = false;
@@ -80,6 +82,7 @@ public class Boss : MonoBehaviour
             {
                 GameObject go = Instantiate(m_effct);
                 go.transform.position = this.transform.position;
+                SceneManager.LoadScene("clear");
                 Destroy(this.gameObject);
             }
         }
@@ -131,5 +134,11 @@ public class Boss : MonoBehaviour
         m_normalAttack = false;
         m_normalAttack2 = true;
     }
+
+    //IEnumerator Load()
+    //{
+    //    yield return new WaitForSeconds(m_waitTime);
+    //    SceneManager.LoadScene("clear");
+    //}
 }
      
